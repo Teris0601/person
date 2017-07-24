@@ -20,7 +20,11 @@
 
     <script src="./js/index.js"></script>
 
-
+    <style>
+        .active img {
+            width: 100%;
+        }
+    </style>
 
 
 </head>
@@ -117,5 +121,15 @@
         </div>
     </div>
 </body>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        notNextTick: true,
+        autoplay: 3000,
+        direction: 'horizontal',
+    })
+    var windowWidth = document.documentElement.clientWidth;
+    console.log(windowWidth)
+    $(".carousel-inner img").css("height", "windowWidth/(400/250)+'px'");
+</script>
 
 </html>

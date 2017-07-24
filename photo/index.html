@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #Addimg {
+            width: 600px;
+            margin: auto;
+        }
+        
+        #Addimg img {
+            width: 200px;
+            height: 300px;
+            float: left;
+            animation: move 5s linear 0s infinite;
+        }
+        
+        #Addimg li {
+            list-style: none;
+        }
+        
+        @keyframes move {
+            0% {
+                transform: scale(1)
+            }
+            25% {
+                transform: scale(0.6)
+            }
+            50% {
+                transform: scale(0.3)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="Addimg">
+
+    </ul>
+</body>
+<script src="../js/jquery.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+<script>
+    for (var i = 0; i < 30; i++) {
+        $("#Addimg").append('<li>' +
+            '<img class="lazy" src="./img/t7.jpg" />' +
+            '</li>'
+        )
+    }
+    $(function() {
+        $("img.lazy").lazyload({
+            effect: "fadeIn",
+            threshold: 200, // 距离屏幕底下200px的时候加载
+            failure_limit: 5
+        });
+    });
+</script>
+
+</html>
